@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+body {
+    background-color: beige;
+}
+
+#navigation {
+    float: top;
+    width: 1320px;
+    height: 70px;
+    background-color: aquamarine;
+}
+
+#column-left {
+    float: left;
+    width: 200px;
+    height: 764px;
+    background-color: azure;
+}

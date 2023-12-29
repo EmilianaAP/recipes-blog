@@ -1,32 +1,23 @@
 @charset "UTF-8";
 
-body {
-    background-color: beige;
-}
-
 #navigation {
-    float: top;
-    width: 1320px;
-    height: 70px;
-    background-color: aquamarine;
-}
-
-#column-left {
     float: left;
-    width: 200px;
-    height: 764px;
+    width: 350px;
+    height: 100%;
     background-color: azure;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f2f2f2;
+    background-image: url("../assets/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    font-family: 'Arial', sans-serif;
 }
 
 #login-form {

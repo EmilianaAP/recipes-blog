@@ -14,9 +14,26 @@
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+            <button type="submit" onclick="login(event)">Login</button>
         </form>
     </div>
+
+    <script>
+        function login() {
+            event.preventDefault();
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // send a request to a server for authentication
+
+            // For demonstration 
+            console.log('Username:', username);
+            console.log('Password:', password);
+
+            window.location.href = "./main-page.html";
+        }
+    </script>
 
 </body>
 </html>

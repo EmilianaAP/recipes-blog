@@ -1,10 +1,25 @@
 @charset "UTF-8";
 
 #navigation {
-    float: left;
-    width: 350px;
+    position: fixed;
+    left: 0px;
+    width: 300px;
     height: 100%;
-    background-color: azure;
+    font-size: 25px;
+    background-color: rgba(165, 201, 249, 0.3);
+    color: #3d3d3d;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #3d3d3d;
+}
+
+a:hover{
+    color:#000;
 }
 
 body {

@@ -85,3 +85,11 @@ button:hover {
     background-color: #45a049;
 }
 
+#post {
+    height: auto;
+    width: 50%;
+    background-color: #45a049;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 10px;
+}

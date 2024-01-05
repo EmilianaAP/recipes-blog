@@ -1,13 +1,11 @@
 @charset "UTF-8";
 
-#navigation {
-    position: fixed;
-    left: 0px;
-    width: 300px;
-    height: 100%;
-    font-size: 25px;
-    background-color: rgba(165, 201, 249, 0.3);
-    color: #3d3d3d;
+body {
+    background-image: url("../assets/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
 }
 
 a {
@@ -22,41 +20,21 @@ a:hover{
     color:#000;
 }
 
-body {
-    background-image: url("../assets/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: 'Arial', sans-serif;
-}
-
-#login-form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
-
-#registration-form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
-
 form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+#form-container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
 }
 
 label {
@@ -83,6 +61,16 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+#navigation {
+    position: fixed;
+    left: 0px;
+    width: 300px;
+    height: 100%;
+    font-size: 25px;
+    background-color: rgba(165, 201, 249, 0.3);
+    color: #3d3d3d;
 }
 
 #post {

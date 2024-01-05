@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <div id="register">
+    <div id="form-container">
         <!-- Registration Form -->
         <form id="registration-form">
             <label for="new-username">Username:</label>
@@ -17,10 +17,26 @@
             <label for="new-password">Password:</label>
             <input type="password" id="new-password" name="new-password" required>
             <label for="new-second-password">Repeat password:</label>
-            <input type="new-second-password" id="new-second-password" name="new-second-password" required>
-            <button type="submit">Register</button>
+            <input type="password" id="new-repeat-password" name="new-repeat-password" required>
+            <button type="submit" onclick="register(event)">Register</button>
         </form>
     </div>
 
+    <script>
+        function register() {
+            event.preventDefault();
+
+            /*var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // send a request to a server for authentication
+
+            // For demonstration 
+            console.log('Username:', username);
+            console.log('Password:', password);*/
+
+            window.location.href = "./main-page.html";
+        }
+    </script>
 </body>
 </html>

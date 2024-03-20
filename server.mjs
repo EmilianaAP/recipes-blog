@@ -26,6 +26,10 @@ app.get('/profile-page.html', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'profile-page.html'));
 });
 
+app.get('/main-page.html', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'main-page.html'));
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

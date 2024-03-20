@@ -1,42 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register page</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Register</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    <div id="form-container">
-        <!-- Registration Form -->
-        <form id="registration-form">
-            <label for="new-username">Username:</label>
-            <input type="text" id="new-username" name="new-username" required>
-            <label for="new-email">Email:</label>
-            <input type="text" id="new-email" name="new-email" required>
-            <label for="new-password">Password:</label>
-            <input type="password" id="new-password" name="new-password" required>
-            <label for="new-second-password">Repeat password:</label>
-            <input type="password" id="new-repeat-password" name="new-repeat-password" required>
-            <button type="submit" onclick="register(event)">Register</button>
-        </form>
-    </div>
 
-    <script>
-        function register() {
-            event.preventDefault();
+<body class="login-body">
+  <div class="background"></div>
+  <div class="card">
+    <h4>Register</h4>
+    <form class="form">
+        <input type="text" placeholder="Name" style="width: 87%;">
+        <input type="email" placeholder="Email" style="width: 87%;">
+        <input type="password" placeholder="Password" style="width: 87%;">
+        <input type="password" placeholder="Confirm password" style="width: 87%;">
+        <button>Submit</button>
+    </form>
 
-            /*var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            // send a request to a server for authentication
-
-            // For demonstration 
-            console.log('Username:', username);
-            console.log('Password:', password);*/
-
-            window.location.href = "./main-page.html";
-        }
-    </script>
+    <footer>
+      Have an account?
+      <a href="login-page.html" style="font-size: medium;">Login</a>
+    </footer>
+  </div>
 </body>
 </html>

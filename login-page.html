@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login page</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    <!-- Login Form -->
-    <div id="form-container">
-        <form id="login">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit" onclick="login(event)">Login</button>
-        </form>
-    </div>
 
-    <script>
-        function login() {
-            event.preventDefault();
+<body class="login-body">
+  <div class="background"></div>
+  <div class="card">
+    <h4>Login</h4>
+    <form class="form">
+      <input type="email" placeholder="Email" style="width: 87%;">
+      <input type="password" placeholder="Password" style="width: 87%;">
+      <button>Submit</button>
+    </form>
 
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            // send a request to a server for authentication
-
-            // For demonstration 
-            console.log('Username:', username);
-            console.log('Password:', password);
-
-            window.location.href = "./main-page.html";
-        }
-    </script>
-
+    <footer>
+      Don't have an account?
+      <a href="register-page.html" style="font-size: medium;">Register</a>
+    </footer>
+  </div>
 </body>
+
 </html>

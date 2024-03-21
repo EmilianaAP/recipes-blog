@@ -36,6 +36,7 @@ a:hover {
 
 .post {
     border: solid #F7B330;
+    background-color: #ffffff;
     width: 600px;
     border-width: 3px;
     border-radius: 50px;

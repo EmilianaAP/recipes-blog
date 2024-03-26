@@ -10,10 +10,10 @@
     <div class="background"></div>
     <div class="card">
         <h4 style="font-size: 30px;">Login</h4>
-        <form class="form">
-        <input type="email" placeholder="Email" style="width: 87%;">
-        <input type="password" placeholder="Password" style="width: 87%;">
-        <button>Submit</button>
+        <form class="form" action="/login" method="POST"> <!-- Changed action and method -->
+            <input type="email" placeholder="Email" style="width: 87%;" name="email"> <!-- Added name attribute -->
+            <input type="password" placeholder="Password" style="width: 87%;" name="password"> <!-- Added name attribute -->
+            <button type="submit">Submit</button> <!-- Added type="submit" -->
         </form>
 
         <footer>

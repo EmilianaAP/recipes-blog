@@ -10,11 +10,11 @@
   <div class="background"></div>
   <div class="card">
     <h4 style="font-size: 30px;">Register</h4>
-    <form class="form">
-        <input type="text" placeholder="Name" style="width: 87%;">
-        <input type="email" placeholder="Email" style="width: 87%;">
-        <input type="password" placeholder="Password" style="width: 87%;">
-        <input type="password" placeholder="Confirm password" style="width: 87%;">
+    <form class="form" action="/register" method="POST">
+        <input type="text" placeholder="Name" name="name" style="width: 87%;">
+        <input type="email" placeholder="Email" name="email" style="width: 87%;">
+        <input type="password" placeholder="Password" name="password" style="width: 87%;">
+        <input type="password" placeholder="Confirm password" name="confirm" style="width: 87%;">
         <button>Submit</button>
     </form>
 

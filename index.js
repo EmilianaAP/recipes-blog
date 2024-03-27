@@ -7,6 +7,7 @@ const db = new sqlite3.Database('./mock.db', sqlite3.OPEN_READWRITE, (err) => {
 });
 
 db.run('CREATE TABLE IF NOT EXISTS Users(userID INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT UNIQUE, password TEXT, name TEXT, role TEXT)');
+//db.run('CREATE TABLE IF NOT EXISTS Posts(postID INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, userID TEXT)');
 
 //const sql = 'INSERT INTO Users (email, password, name, role) VALUES(?,?,?,?)';
 

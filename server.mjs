@@ -95,6 +95,10 @@ app.get('/profile-page.html', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'profile-page.html'));
 });
 
+app.get('/add-recipe-page.html', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'add-recipe-page.html'));
+});
+
 app.get('/main-page.html', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'main-page.html'));
 });

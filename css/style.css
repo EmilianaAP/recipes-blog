@@ -30,8 +30,9 @@ a:hover {
 
 .current-link {
     color: #F7B330;
-    text-decoration: underline;
+    /*text-decoration: underline; */
     text-underline-offset: 10px;
+    text-align: center;
 }
 
 .post {

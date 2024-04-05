@@ -64,6 +64,17 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.get('/current-user-id', (req, res) => {
+    // Check if the user is authenticated
+    if (req.session.user) {
+        // If the user is authenticated, send back their ID
+        res.json({ userId: req.session.user.userID });
+    } else {
+        // If the user is not authenticated, send an error response
+        res.status(401).json({ error: 'User not authenticated' });
+    }
+});
+
 app.get('/register-page.html', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'register-page.html'));
 });
@@ -87,6 +98,37 @@ app.post('/register', (req, res) => {
             console.log(`New user inserted into database with ID: ${this.lastID}`);
             // Redirect to profile page or any other page as needed
             res.redirect('/profile-page.html');
+        }
+    });
+});
+
+app.get('/username/:userId', (req, res) => {
+    const { userId } = req.params;
+    const sql = 'SELECT name FROM Users WHERE userID = ?';
+
+    db.get(sql, [userId], (err, row) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Error retrieving username from database' });
+        } else {
+            if (row) {
+                res.json({ username: row.name });
+            } else {
+                res.status(404).json({ error: 'User not found' });
+            }
+        }
+    });
+});
+
+app.get('/posts', (req, res) => {
+    const sql = 'SELECT * FROM Posts';
+
+    db.all(sql, [], (err, posts) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Error retrieving posts from database' });
+        } else {
+            res.json(posts);
         }
     });
 });

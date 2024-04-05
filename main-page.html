@@ -5,6 +5,13 @@
         <title>Main page</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            h1.title {
+                text-align: left; /* Align the text to the left */
+                margin-left: 20px; /* Add some left margin for spacing */
+                margin-top: -30px;
+            }
+        </style>
     </head>
     <body>
         <div class="nav-container">
@@ -17,10 +24,50 @@
             <a href="#"><i class="fa fa-heart"></i></a>
             <div class="background"></div>
         </div> 
-        <div class="post">
+        <!-- <div class="post">
             <h4>USERNAME</h4>
             <h1>TITLE</h1>
             <p>hi hi hi hi hi</p>
-        </div>
+        </div>  -->
+
+        <div id="posts-container"></div> 
+
+        <script>
+             fetch('/posts')
+            .then(response => response.json())
+            .then(posts => {
+                const postsContainer = document.getElementById('posts-container');
+
+                // Iterate through each post and fetch username
+                posts.forEach(post => {
+                    // Fetch username for the post's userId
+                    fetch(`/username/${post.userId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Create HTML elements for the post
+                            const postDiv = document.createElement('div');
+                            postDiv.classList.add('post');
+
+                            const usernameHeading = document.createElement('h4');
+                            usernameHeading.textContent = data.username; // Use the username from the response
+
+                            const titleHeading = document.createElement('h1');
+                            titleHeading.textContent = post.title;
+                            titleHeading.classList.add('title'); 
+
+                            const descriptionParagraph = document.createElement('p');
+                            descriptionParagraph.textContent = post.description;
+
+                            postDiv.appendChild(usernameHeading);
+                            postDiv.appendChild(titleHeading);
+                            postDiv.appendChild(descriptionParagraph);
+
+                            postsContainer.appendChild(postDiv);
+                        })
+                        .catch(error => console.error('Error fetching username:', error));
+                });
+            })
+            .catch(error => console.error('Error fetching posts:', error));    
+        </script>
     </body>
 </html>

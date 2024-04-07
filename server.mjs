@@ -133,6 +133,20 @@ app.get('/posts', (req, res) => {
     });
 });
 
+app.get('/user-posts/:userId', (req, res) => {
+    const userId = req.params.userId;
+    const sql = 'SELECT * FROM Posts WHERE userID = ?';
+
+    db.all(sql, [userId], (err, posts) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Error retrieving user posts from database' });
+        } else {
+            res.json(posts);
+        }
+    });
+});
+
 app.get('/profile-page.html', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'profile-page.html'));
 });

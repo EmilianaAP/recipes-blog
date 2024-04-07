@@ -145,6 +145,23 @@ app.get('/main-page.html', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'main-page.html'));
 });
 
+app.post('/add-recipe', (req, res) => {
+    // Extract recipe data from the request body
+    const { title, description, likes, userID } = req.body;
+
+    // Insert the new recipe into the database
+    const sql = 'INSERT INTO Posts (title, description, likes, userID) VALUES (?, ?, ?, ?)';
+    db.run(sql, [title, description, likes, userID], function(err) {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send('Error inserting recipe into database');
+        } else {
+            console.log(`New recipe inserted into database with ID: ${this.lastID}`);
+            res.status(200).send('Recipe added successfully');
+        }
+    });
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

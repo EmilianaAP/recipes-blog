@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Profile page</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div class="nav-container">
-            <a href="main-page.html" style="padding-left: 390px;">Tasty Explorer</a>
-            <a href="login-page.html">Login</a>
-            <a href="register-page.html">Register</a>
-            <a href="profile-page.html">Profile</a>
-            <a class="current-link" href="#">Add recipe</a>
-            <a href="#" style="padding-left: 200px;"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-heart"></i></a>
-            <div class="background"></div>
-        </div>
-    </body>
+<html lang="en">
+
+<head>
+  <title>Add recipe</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="login-body">
+    <div class="background"></div>
+    <div class="card">
+        <h4 class="right" style="font-size: 30px;"><a class="left" href="main-page.html" style="color: #F7B330"><i class="fa fa-chevron-left" style="margin-right: -35px;"></i></a>Add recipe</h4>
+        <form class="form" action="/add-recipe" method="POST"> <!-- Changed action and method -->
+            <input type="text" placeholder="Title" style="width: 87%;" name="title"> <!-- Added name attribute -->
+            <input type="text" placeholder="Description" style="width: 87%;" name="description">
+            <button type="submit">Post</button> <!-- Added type="submit" -->
+        </form>
+    </div>
+</body>
+
 </html>

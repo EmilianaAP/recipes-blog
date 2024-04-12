@@ -4,7 +4,7 @@ import path from 'path';
 import sqlite3 from 'sqlite3';
 
 const app = express();
-const port = 5000;
+const port = 3000;
 
 // Set up session middleware
 app.use(session({
@@ -60,7 +60,7 @@ app.post('/login', (req, res) => {
         req.session.user = row; // Store user data in the session
 
         // Redirect to the profile page or any other page
-        res.redirect('/profile-page.html');
+        res.redirect('/main-page.html');
     });
 });
 
@@ -97,7 +97,7 @@ app.post('/register', (req, res) => {
         } else {
             console.log(`New user inserted into database with ID: ${this.lastID}`);
             // Redirect to profile page or any other page as needed
-            res.redirect('/profile-page.html');
+            res.redirect('/main-page.html');
         }
     });
 });
@@ -160,8 +160,19 @@ app.get('/main-page.html', (req, res) => {
 });
 
 app.post('/add-recipe', (req, res) => {
-    // Extract recipe data from the request body
-    const { title, description, likes, userID } = req.body;
+    // Extract recipe title and description from the request body
+    const { title, description } = req.body;
+
+    // Check if the user is authenticated
+    if (!req.session.user) {
+        return res.status(401).send('User not authenticated');
+    }
+
+    // Get the userID from the session
+    const userID = req.session.user.userID;
+
+    // Set likes to zero
+    const likes = 0;
 
     // Insert the new recipe into the database
     const sql = 'INSERT INTO Posts (title, description, likes, userID) VALUES (?, ?, ?, ?)';

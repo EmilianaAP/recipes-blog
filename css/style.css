@@ -45,11 +45,39 @@ a:hover {
     flex-direction: column;
     margin: 0 auto;
     margin-top: 50px;
+    position: relative;
+    padding-bottom: 40px;
 }
 
 .post h1, h2, h3, h4, h5, h6,
 .post p {
     margin-left: 30px; 
+}
+
+.edit-button,
+.delete-button {
+    position: absolute;
+    padding-bottom: 20px;
+    background-color: #F7B330;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-button {
+    right: 90px; /* Adjust the position of the edit button */
+}
+
+.delete-button {
+    right: 25px;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    background-color: #F8D748;
 }
 
 

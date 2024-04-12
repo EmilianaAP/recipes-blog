@@ -4,7 +4,7 @@ import path from 'path';
 import sqlite3 from 'sqlite3';
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
 // Set up session middleware
 app.use(session({

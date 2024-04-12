@@ -69,10 +69,12 @@ a:hover {
 
 .edit-button {
     right: 90px; /* Adjust the position of the edit button */
+    margin-top: 28px;
 }
 
 .delete-button {
     right: 25px;
+    margin-top: 28px;
 }
 
 .edit-button:hover,

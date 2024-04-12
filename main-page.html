@@ -62,12 +62,53 @@
                             postDiv.appendChild(titleHeading);
                             postDiv.appendChild(descriptionParagraph);
 
+                            const likeButton = document.createElement('button');
+                            likeButton.innerHTML = '&hearts;'; // Heart symbol entity
+                            likeButton.classList.add('like-button');
+
+                            // Set the data-post-id attribute to store the post ID
+                            likeButton.setAttribute('data-post-id', post.postId);
+
+                            // Display initial like count
+                            const likeCount = document.createElement('span');
+                            likeCount.textContent = `Likes: ${post.likes}`;
+                            //likeCount.classList.add('like-count'); // Add class for easier selection
+
+                            postDiv.appendChild(likeButton);
+                            postDiv.appendChild(likeCount);
                             postsContainer.appendChild(postDiv);
+
+                            likeButton.addEventListener('click', (event) => {
+                                // Prevent the default action of the button (e.g., form submission)
+                                event.preventDefault();
+
+                                // Find the parent post element
+                                const postDiv = likeButton.closest('.post');
+
+                                // Find the like count element within the parent post element
+                                const likeCount = postDiv.querySelector('.like-count');
+
+                                // Get the post ID from the data attribute
+                                const postId = likeButton.getAttribute('data-post-id');
+
+                                console.log("ggg")
+
+                                // Increment like count in the database
+                                fetch(`/like-post/${postId}`, { method: 'POST' })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        // Update like count displayed
+                                        likeCount.textContent = `Likes: ${data.likes}`;
+                                    })
+                                    .catch(error => console.error('Error liking post:', error));
+                            });
+
                         })
                         .catch(error => console.error('Error fetching username:', error));
                 });
             })
-            .catch(error => console.error('Error fetching posts:', error));    
+            .catch(error => console.error('Error fetching posts:', error)); 
+            
         </script>
     </body>
 </html>

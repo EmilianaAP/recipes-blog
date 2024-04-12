@@ -187,6 +187,41 @@ app.post('/add-recipe', (req, res) => {
     });
 });
 
+app.post('/like-post/:postId', (req, res) => {
+    const { postId } = req.params;
+
+    // Increment like count in the database
+    const sql = 'UPDATE Posts SET likes = likes + 1 WHERE postId = ?';
+    db.run(sql, [postId], function(err) {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Error updating like count in the database' });
+        } else {
+            // Check if any rows were affected by the update
+            if (this.changes === 0) {
+                // No rows were updated, postId may be invalid
+                res.status(404).json({ error: 'Post not found' });
+            } else {
+                // Get updated like count
+                const selectSql = 'SELECT likes FROM Posts WHERE postId = ?';
+                db.get(selectSql, [postId], (err, row) => {
+                    if (err) {
+                        console.error(err.message);
+                        res.status(500).json({ error: 'Error retrieving updated like count from the database' });
+                    } else {
+                        // Check if the row exists
+                        if (row) {
+                            res.json({ likes: row.likes });
+                        } else {
+                            res.status(404).json({ error: 'Post not found' });
+                        }
+                    }
+                });
+            }
+        }
+    });
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

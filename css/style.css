@@ -195,3 +195,27 @@ a:hover {
 .card > footer > a {
     color: #F7B330;
 }
+
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #fccf7a; /* Color for the heart icon */
+}
+
+.like-button:hover {
+    color: #F8D748; /* Change color on hover */
+}
+
+.like-count {
+    position: absolute;
+    bottom: 10px;
+    left: 45px; /* Adjust position as needed */
+    font-size: 16px;
+    margin-left: 5px;
+    color: #fff; /* Color for the like count */
+}
